@@ -7,7 +7,6 @@ import wandb
 
 from dashboard_utils.time_tracker import _log, simple_time_tracker
 
-WANDB_REPO = "learning-at-home/dalle-hivemind"
 CACHE_TTL = 120  # note: in the text, we claim that this plot is updated every few minutes
 
 
@@ -16,8 +15,7 @@ CACHE_TTL = 120  # note: in the text, we claim that this plot is updated every f
 def get_main_metrics():
     wandb.login(anonymous="must")
     api = wandb.Api()
-    runs = api.runs(WANDB_REPO)
-    run = runs[0]
+    run = api.run('learning-at-home/dalle-hivemind/runs/3l7q56ht')
     history = run.history(keys=["step", "loss", "alive peers", "_timestamp"])
 
     steps = []
