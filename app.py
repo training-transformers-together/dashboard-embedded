@@ -14,7 +14,7 @@ st.markdown("""<style>
 }
 </style>""", unsafe_allow_html=True)
 source = get_main_metrics()
-source = source[source["wall time"].astype(int) >= 1638951059000000000]
+source = source[source["wall time"].astype(int) >= 1638958911000000000]
 st.vega_lite_chart(
     source, {
         "height": 200,
